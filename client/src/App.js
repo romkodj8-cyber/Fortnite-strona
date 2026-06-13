@@ -74,7 +74,7 @@ function App() {
 
   const searchPlayer = async () => {
     try {
-      // Adres zmieniony na produkcyjny (Render)
+      // Adres produkcyjny (Render)
       const response = await fetch(`https://fortnitetrackerpl.onrender.com/api/player/${nickname}`);
       const data = await response.json();
       
@@ -91,7 +91,7 @@ function App() {
 
   return (
     <Container>
-      <h1>Fortnite Tracker (PL)</h1>
+      <h1>Fortnite stats checking</h1>
       <SearchBox>
         <Input placeholder="Podaj nick..." value={nickname} onChange={(e) => setNickname(e.target.value)} />
         <Button onClick={searchPlayer}>SZUKAJ</Button>
