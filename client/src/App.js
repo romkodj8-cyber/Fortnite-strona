@@ -100,7 +100,7 @@ function App() {
         <Grid>
           <StatCard>
             <StatValue>{stats.battlePass?.level || '0'}</StatValue>
-            <StatLabel>Poziom konta</StatLabel>
+            <StatLabel>Poziom Battle Pass</StatLabel>
           </StatCard>
           <StatCard>
             <StatValue>{stats.stats.all.overall.wins}</StatValue>
@@ -124,12 +124,9 @@ function App() {
           </StatCard>
           <StatCard>
             <StatValue>
-              {stats.stats.all.rankedSolo?.rank || 
-               stats.stats.all.rankedDuo?.rank || 
-               stats.stats.all.rankedSquad?.rank || 
-               'Brak'}
+              {stats.stats.all.overall.rankedDivision || 'Brak'}
             </StatValue>
-            <StatLabel>Najwyższa Ranga</StatLabel>
+            <StatLabel>Ranga (Dywizja)</StatLabel>
           </StatCard>
         </Grid>
       )}
