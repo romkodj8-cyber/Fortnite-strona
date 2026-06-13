@@ -74,11 +74,19 @@ function App() {
 
   const searchPlayer = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/player/${nickname}`);
+      // Adres zmieniony na produkcyjny (Render)
+      const response = await fetch(`https://fortnitetrackerpl.onrender.com/api/player/${nickname}`);
       const data = await response.json();
-      if (data.data) setStats(data.data);
-      else alert("Nie znaleziono gracza!");
-    } catch (e) { alert("Błąd serwera"); }
+      
+      if (data.data) {
+        setStats(data.data);
+      } else {
+        alert("Nie znaleziono gracza!");
+      }
+    } catch (e) { 
+      console.error(e);
+      alert("Błąd serwera - sprawdź konsolę (F12)"); 
+    }
   };
 
   return (
@@ -89,7 +97,7 @@ function App() {
         <Button onClick={searchPlayer}>SZUKAJ</Button>
       </SearchBox>
       
-      {stats && (
+      {stats && stats.stats?.all?.overall && (
         <Grid>
           <StatCard>
             <StatValue>{stats.stats.all.overall.wins}</StatValue>
