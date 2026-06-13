@@ -11,17 +11,14 @@ app.get('/api/player/:nickname', async (req, res) => {
     console.log(`Szukam gracza: ${nickname}`);
     
     try {
-        // Używamy oficjalnego endpointu v2
         const response = await axios.get(`https://fortnite-api.com/v2/stats/br/v2?name=${nickname}`, {
             headers: {
                 'Authorization': 'a0490736-2472-4e35-81a9-5bf33bf8ca59'
             }
         });
         
-        // Zwracamy czyste dane do frontendu
         res.json(response.data);
     } catch (error) {
-        // Logowanie błędu do Twojego terminala, żebyśmy wiedzieli co się dzieje
         if (error.response) {
             console.error("API zwróciło błąd:", error.response.status, error.response.data);
             res.status(error.response.status).json(error.response.data);
@@ -32,6 +29,8 @@ app.get('/api/player/:nickname', async (req, res) => {
     }
 });
 
-app.listen(3001, () => {
-    console.log('Serwer uruchomiony na http://localhost:3001');
+// POPRAWKA: użycie procesu portu środowiskowego
+const port = process.env.PORT || 3001;
+app.listen(port, () => {
+    console.log(`Serwer uruchomiony na porcie ${port}`);
 });
