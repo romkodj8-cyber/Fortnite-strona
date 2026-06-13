@@ -99,7 +99,7 @@ function App() {
       {stats && stats.stats?.all?.overall && (
         <Grid>
           <StatCard>
-            <StatValue>{stats.accountLevel || '0'}</StatValue>
+            <StatValue>{stats.level || '0'}</StatValue>
             <StatLabel>Poziom konta</StatLabel>
           </StatCard>
           <StatCard>
