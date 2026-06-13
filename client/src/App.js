@@ -74,7 +74,6 @@ function App() {
 
   const searchPlayer = async () => {
     try {
-      // Adres produkcyjny (Render)
       const response = await fetch(`https://fortnitetrackerpl.onrender.com/api/player/${nickname}`);
       const data = await response.json();
       
@@ -99,6 +98,10 @@ function App() {
       
       {stats && stats.stats?.all?.overall && (
         <Grid>
+          <StatCard>
+            <StatValue>{stats.accountLevel || '0'}</StatValue>
+            <StatLabel>Poziom konta</StatLabel>
+          </StatCard>
           <StatCard>
             <StatValue>{stats.stats.all.overall.wins}</StatValue>
             <StatLabel>Wygrane</StatLabel>
