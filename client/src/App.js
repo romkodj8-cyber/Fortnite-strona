@@ -99,7 +99,7 @@ function App() {
       {stats && stats.stats?.all?.overall && (
         <Grid>
           <StatCard>
-            <StatValue>{stats.level || '0'}</StatValue>
+            <StatValue>{stats.battlePass?.level || '0'}</StatValue>
             <StatLabel>Poziom konta</StatLabel>
           </StatCard>
           <StatCard>
