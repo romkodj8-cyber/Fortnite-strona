@@ -124,9 +124,12 @@ function App() {
           </StatCard>
           <StatCard>
             <StatValue>
-              {stats.stats.all.overall.rankedDivision || 'Brak'}
+              {stats.stats.all.rankedSolo?.rank || 
+               stats.stats.all.rankedDuo?.rank || 
+               stats.stats.all.rankedSquad?.rank || 
+               'Brak'}
             </StatValue>
-            <StatLabel>Ranga (Dywizja)</StatLabel>
+            <StatLabel>Ranga</StatLabel>
           </StatCard>
         </Grid>
       )}
